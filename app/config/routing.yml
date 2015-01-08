@@ -1,4 +1,3 @@
 ghost_blog:
     resource: "@GhostBlogBundle/Resources/config/routing.yml"
     prefix:   /
-
