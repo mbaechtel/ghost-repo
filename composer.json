@@ -20,7 +20,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "mopa/bootstrap-bundle": "3.*@dev",
         "twbs/bootstrap": "v3.2.0",
-        "oyejorge/less.php": "dev-master"
+        "oyejorge/less.php": "dev-master",
+        "stof/doctrine-extensions-bundle": "v1.1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
