@@ -21,7 +21,9 @@
         "mopa/bootstrap-bundle": "3.*@dev",
         "twbs/bootstrap": "v3.2.0",
         "oyejorge/less.php": "dev-master",
-        "stof/doctrine-extensions-bundle": "v1.1.0"
+        "stof/doctrine-extensions-bundle": "v1.1.0",
+        "doctrine/migrations": "1.0.*@dev",
+        "doctrine/doctrine-migrations-bundle": "2.1.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
