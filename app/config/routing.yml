@@ -4,3 +4,7 @@ ghost_blog:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+_console:
+    resource: "@CoreSphereConsoleBundle/Resources/config/routing.yml"
+    prefix: /_console

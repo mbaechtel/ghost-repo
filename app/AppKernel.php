@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new CoreSphere\ConsoleBundle\CoreSphereConsoleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
