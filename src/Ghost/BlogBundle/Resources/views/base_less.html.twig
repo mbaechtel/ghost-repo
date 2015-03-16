@@ -3,11 +3,12 @@
 {% block head_style %}
     {# Override this block to add your own files! #}
     {% stylesheets
-        '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+        '@GhostBlogBundle/Resources/public/less/main.less'
     %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
     {% endstylesheets %}
     <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     {# To use this without less use the base_css.html.twig template as your base
      # Be sure you understand whats going on: have a look into
      # https://github.com/phiamo/MopaBootstrapBundle/blob/master/Resources/doc/css-vs-less.md

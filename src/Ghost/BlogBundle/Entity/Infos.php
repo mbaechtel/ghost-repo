@@ -12,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Infos
 {
+    use TimeStampableBehavior;
+
     /**
      * @var integer
      *
@@ -28,11 +30,10 @@ class Infos
      */
     private $content;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -55,7 +56,7 @@ class Infos
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
     public function getContent()
     {
