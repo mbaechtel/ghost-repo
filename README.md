@@ -1,7 +1,7 @@
 ghost-repo
 ==========
 
-My first repo on github
+My first repo on github (mbaechtel organization)
 
 Symfony Standard Edition
 ========================
