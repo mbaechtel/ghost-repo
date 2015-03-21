@@ -9,7 +9,6 @@ app/SymfonyRequirements.php
 app/cache
 app/logs
 app/sessions/*
-app/Resources/views/*
 web/assetic/*
 web/bundles/*
 web/css/*
