@@ -1,0 +1,29 @@
+{% extends 'GhostBlogBundle::layout.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block container %}
+    <div class="container">
+        <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+            <h3 class="form-signin-heading">Please sign in</h3>
+
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputUsername" name="_username" class="form-control" placeholder="Username" required autofocus>
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="_password" class="form-control" placeholder="Password" required>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" id="_submit" name="_submit" type="submit">Sign in</button>
+            {% if error %}
+                <div class="text-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock container %}
