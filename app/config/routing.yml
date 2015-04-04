@@ -8,3 +8,7 @@ fos_user_security:
 _console:
     resource: "@CoreSphereConsoleBundle/Resources/config/routing.yml"
     prefix: /_terminal
+
+ghost_console:
+    resource: "@GhostBlogBundle/Resources/config/console.yml"
+    prefix: /console/

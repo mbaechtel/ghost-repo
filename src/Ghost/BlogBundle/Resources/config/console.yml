@@ -1,0 +1,3 @@
+ghost_console_default_dashboard:
+    path: /
+    defaults: { _controller: GhostBlogBundle:Console\Default:dashboard }
