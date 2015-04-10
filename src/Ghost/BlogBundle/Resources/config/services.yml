@@ -1,3 +1,6 @@
+imports:
+    - { resource: menus.yml }
+
 services:
 #    ghost_blog.example:
 #        class: Ghost\BlogBundle\Example

@@ -3,16 +3,27 @@
 namespace Ghost\BlogBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * Class Builder
+ * Class MenuBuilder
  * @package Ghost\BlogBundle\Menu
  */
-class Builder
+class MenuBuilder
 {
-    public function mainMenu(FactoryInterface $factory, array $options)
+    /**
+     * @var FactoryInterface $factory
+     */
+    private $factory;
+
+    public function __construct(FactoryInterface $factory)
     {
-        $menu = $factory->createItem('root', [
+        $this->factory = $factory;
+    }
+
+    public function createMainMenu(RequestStack $requestStack)
+    {
+        $menu = $this->factory->createItem('root', [
             'childrenAttributes' => [
                 'class' => 'nav navbar-nav'
             ]

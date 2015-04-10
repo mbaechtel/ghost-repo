@@ -1,0 +1,13 @@
+services:
+
+    app.menu_builder:
+        class: Ghost\BlogBundle\Menu\MenuBuilder
+        arguments: [@knp_menu.factory]
+
+    app.main_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: app.menu_builder
+        factory_method: createMainMenu
+        arguments: [@request_stack]
+        tags:
+            - { name: knp_menu.menu, alias: main }
