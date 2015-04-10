@@ -25,7 +25,8 @@
         "doctrine/migrations": "1.0.*@dev",
         "doctrine/doctrine-migrations-bundle": "2.1.*@dev",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "coresphere/console-bundle": "dev-master"
+        "coresphere/console-bundle": "dev-master",
+        "knplabs/knp-menu-bundle": "2.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

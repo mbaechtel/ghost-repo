@@ -1,3 +1,11 @@
 ghost_blog_homepage:
     path: /
     defaults: { _controller: GhostBlogBundle:Default:index }
+
+ghost_blog_aboutpage:
+    path: /about
+    defaults: { _controller: GhostBlogBundle:About:index }
+
+ghost_blog_contactpage:
+    path: /contact
+    defaults: { _controller: GhostBlogBundle:Contact:index }
