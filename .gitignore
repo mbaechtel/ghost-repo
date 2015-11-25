@@ -49,3 +49,5 @@ cache.properties
 behat.phar
 parameters.toprod.yml
 behat.yml
+.htaccess
+
