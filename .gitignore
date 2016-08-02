@@ -21,7 +21,6 @@ web/fa-fonts
 web/uploads/*
 web/media/*
 vendor/*
-bin/*
 build/api
 build/behat
 build/code-browser
@@ -41,7 +40,7 @@ cache.properties
 /.tags_sorted_by_file
 .DS_Store
 /sftp-config.json
-/vendor
+/vendor/
 .idea/*
 /app/dev/
 /.rsync_cache/
@@ -49,4 +48,9 @@ cache.properties
 behat.phar
 parameters.toprod.yml
 behat.yml
-
+/var/
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+/phpunit.xml.dist
+var/cache/*
+var/logs/*

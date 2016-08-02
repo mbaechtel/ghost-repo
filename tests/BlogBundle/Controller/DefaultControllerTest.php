@@ -1,6 +1,6 @@
 <?php
 
-namespace Ghost\BlogBundle\Tests\Controller;
+namespace Tests\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

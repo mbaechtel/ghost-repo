@@ -23,6 +23,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    assets: ~
 
 # Twig Configuration
 twig:
@@ -40,7 +41,7 @@ assetic:
     filters:
         lessphp:
             file: %kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php
-            apply_to: "\.less$"
+            apply_to: '\.less$'
         #less:
         #    node: %node_bin_path%
         #    node_paths: [%node_modules_path%]
@@ -123,7 +124,7 @@ services:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
-            - [ setAnnotationReader, [ @annotation_reader ] ]
+            - [ setAnnotationReader, [ '@annotation_reader' ] ]
 
 # Swiftmailer Configuration
 swiftmailer:
