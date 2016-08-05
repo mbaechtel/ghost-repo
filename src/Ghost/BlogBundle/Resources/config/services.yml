@@ -2,6 +2,6 @@ imports:
     - { resource: menus.yml }
 
 services:
-#    ghost_blog.example:
-#        class: Ghost\BlogBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    api.instagram:
+        class: Ghost\BlogBundle\Manager\Instagram
+        arguments: ['%instagram_accesstoken%']

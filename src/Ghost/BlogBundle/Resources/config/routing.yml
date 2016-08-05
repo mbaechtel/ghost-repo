@@ -9,3 +9,7 @@ ghost_blog_aboutpage:
 ghost_blog_contactpage:
     path: /contact
     defaults: { _controller: GhostBlogBundle:Contact:index }
+
+ghost_blog_testpage:
+    path: /test
+    defaults: { _controller: GhostBlogBundle:Default:test }
