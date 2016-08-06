@@ -50,11 +50,11 @@ class Instagram
     /**
      * Get user recent medias
      *
-     * @return null|object
+     * @return null|array|object
      */
     public function getUserRecentMedias()
     {
-        return $this->doRequest('users/self/media/recent/');
+        return array_reverse($this->doRequest('users/self/media/recent/'));
     }
 
     /**
@@ -83,7 +83,7 @@ class Instagram
      * Do request on api instagram
      *
      * @param $uri
-     * @return null|object
+     * @return null|array|object
      */
     private function doRequest($uri)
     {

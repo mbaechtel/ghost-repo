@@ -3,7 +3,6 @@
 namespace Ghost\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use GuzzleHttp\Client;
 
 /**
  * Class DefaultController
@@ -40,9 +39,10 @@ class DefaultController extends Controller
     {
         $instagram = $this->get('api.instagram');
 
+        $result = null;
         //$result = $instagram->getUserInfos();
         //$result = $instagram->getUserRecentMedias();
-        $result = $instagram->getMediaInfos('1097296370082201329_2238676230');
+        //$result = $instagram->getMediaInfos('1097296370082201329_2238676230');
 
         return $this->render('GhostBlogBundle:Default:test.html.twig', [
            'result' => $result

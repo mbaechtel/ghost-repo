@@ -23,6 +23,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "knplabs/knp-menu-bundle": "~2.0",
         "mopa/bootstrap-bundle": "3.0.*",
+        "nesbot/carbon": "~1.21",
         "oyejorge/less.php": "dev-master",
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "~3.0",

@@ -5,3 +5,9 @@ services:
     api.instagram:
         class: Ghost\BlogBundle\Manager\Instagram
         arguments: ['%instagram_accesstoken%']
+
+    gh.instagram_importer:
+        class: Ghost\BlogBundle\Importer\InstagramImporter
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@api.instagram'
