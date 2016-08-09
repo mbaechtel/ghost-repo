@@ -3,6 +3,7 @@
 namespace Ghost\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\EntityManager;
 
 /**
  * Class DefaultController
@@ -17,16 +18,15 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        /** @var EntityManager $em */
         $em = $this->getDoctrine()->getManager();
 
-        $infos = $em->getRepository('GhostBlogBundle:Infos')->find(1);
-
-        if (!$infos) {
-            throw $this->createNotFoundException('Unable to find Infos.');
-        }
+        $medias = $em->getRepository('GhostBlogBundle:InstaMedia')->findBy([
+            'published' => true
+        ], ['created' => 'DESC']);
 
         return $this->render('GhostBlogBundle:Default:index.html.twig', [
-            'content' => $infos->getContent()
+            'medias' => $medias
         ]);
     }
 

@@ -104,6 +104,8 @@ class InstagramImporter
      */
     private function updateInstaMedia(InstaMedia $instaMedia, $media)
     {
-
+        $instaMedia->setComments($media->comments->count)
+            ->setLikes($media->likes->count)
+            ->setUpdated(Carbon::now());
     }
 }

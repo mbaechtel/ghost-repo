@@ -11,3 +11,12 @@ services:
         arguments:
             - '@doctrine.orm.entity_manager'
             - '@api.instagram'
+
+    gh.listener.maintenance:
+        class: Ghost\BlogBundle\Listener\MaintenanceListener
+        arguments:
+            - '%maintenance%'
+            - '@templating'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
