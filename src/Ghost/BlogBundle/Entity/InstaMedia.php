@@ -1,18 +1,21 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: mbaechtel
+ * Date: 06/08/2016
+ * Time: 11:22
+ */
 
 namespace Ghost\BlogBundle\Entity;
 
-use Ghost\BlogBundle\Model\Infos as BaseInfos;
-use Ghost\BlogBundle\Model\Traits\TimeStampableBehavior;
+use Ghost\BlogBundle\Model\InstaMedia as BaseInstaMedia;
 
 /**
- * Class Infos
+ * Class InstaMedia
  * @package Ghost\BlogBundle\Entity
  */
-class Infos extends BaseInfos
+class InstaMedia extends BaseInstaMedia
 {
-    use TimeStampableBehavior;
-    
     /**
      * @var integer
      */

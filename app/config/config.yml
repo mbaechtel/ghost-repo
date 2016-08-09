@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: ghost_parameters.yml }
     - { resource: security.yml }
 
 framework:

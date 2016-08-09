@@ -2,6 +2,21 @@ imports:
     - { resource: menus.yml }
 
 services:
-#    ghost_blog.example:
-#        class: Ghost\BlogBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    api.instagram:
+        class: Ghost\BlogBundle\Manager\Instagram
+        arguments: ['%instagram_accesstoken%']
+
+    gh.instagram_importer:
+        class: Ghost\BlogBundle\Importer\InstagramImporter
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@api.instagram'
+
+    gh.listener.maintenance:
+        class: Ghost\BlogBundle\Listener\MaintenanceListener
+        arguments:
+            - '%maintenance%'
+            - '@templating'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

@@ -2,27 +2,29 @@
 
 namespace Ghost\BlogBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
-use Doctrine\ORM\Mapping as ORM;
+use Ghost\BlogBundle\Model\Traits\TimeStampableBehavior;
+use Ghost\BlogBundle\Model\User as BaseUser;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * Class User
+ * @package Ghost\BlogBundle\Entity
  */
 class User extends BaseUser
 {
     use TimeStampableBehavior;
-
+    
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer
      */
     protected $id;
 
-    public function __construct()
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
     {
-        parent::__construct();
-        // your own logic
+        return $this->id;
     }
 }

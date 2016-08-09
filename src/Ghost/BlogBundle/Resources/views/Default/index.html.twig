@@ -1,8 +1,16 @@
 {% extends 'GhostBlogBundle::layout.html.twig' %}
 
 {% block container %}
-    <div class="jumbotron">
-        <h1>Hello</h1>
-        <p>{{ content }}</p>
+    <p class="h4">Instagram flow</p>
+    <div class="row">
+        {% for media in medias %}
+            <div class="col-xs-12 col-sm-4 col-md-3" style="margin-top: 5px;">
+                <img class="img-rounded m-x-auto d-block" style="width: 100%; display: block;" src="{{ media.standardResolution }}">
+                <p class="h6">
+                    <i class="fa fa-heart"></i>
+                    {{ media.likes }}
+                </p>
+            </div>
+        {% endfor %}
     </div>
 {% endblock container %}

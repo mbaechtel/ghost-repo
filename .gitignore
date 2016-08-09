@@ -1,6 +1,7 @@
 *.mine
 app/phpstormcache
 app/config/parameters.yml
+app/config/ghost_parameters.yml
 vm/group_vars/all
 vm/group_vars/development
 app/*\.cache
