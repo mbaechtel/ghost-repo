@@ -3,7 +3,6 @@
 namespace Ghost\BlogBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Class MenuBuilder
@@ -21,7 +20,7 @@ class MenuBuilder
         $this->factory = $factory;
     }
 
-    public function createMainMenu(RequestStack $requestStack)
+    public function createMainMenu(array $options)
     {
         $menu = $this->factory->createItem('root', [
             'childrenAttributes' => [

@@ -65,7 +65,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ app.security.getToken().getUser().getUsername() }}<span class="caret"></span>
+                                {{ app.user.username }}<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ path("fos_user_security_logout") }}">Logout</a></li>
@@ -94,6 +94,7 @@
             </div>
             <ul class="nav navbar-nav navbar-left"></ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
+                <li><a class="icon" href="https://www.linkedin.com/in/mathieu-baechtel-16051bb5" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
                 <li><a class="icon" href="https://www.facebook.com/mbaechtel" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                 <li><a class="icon" href="https://twitter.com/MatB_74" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                 <li><a class="icon" href="https://www.google.com/+MathieuBaechtel" title="Google"><i class="fa fa-google-plus"></i></a></li>
