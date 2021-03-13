@@ -30,7 +30,6 @@ build/logs
 build/pdepend
 build/phpdox
 build/phpmd/*
-composer.lock
 composer.phar
 node_modules
 *.sublime-*
