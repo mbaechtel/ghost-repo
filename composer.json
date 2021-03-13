@@ -19,7 +19,7 @@
         "doctrine/doctrine-migrations-bundle": "~1.1",
         "doctrine/orm": "~2.7",
         "friendsofsymfony/user-bundle": "^2.1",
-        "guzzlehttp/guzzle": "6.2.3",
+        "guzzlehttp/guzzle": "~6.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "knplabs/knp-menu-bundle": "~2.0",
         "mopa/bootstrap-bundle": "3.2.*",
