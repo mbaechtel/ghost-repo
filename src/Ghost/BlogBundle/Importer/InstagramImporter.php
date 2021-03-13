@@ -44,6 +44,8 @@ class InstagramImporter
 
     /**
      * Import last media instagram in database
+     *
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function import()
     {
@@ -104,8 +106,11 @@ class InstagramImporter
      */
     private function updateInstaMedia(InstaMedia $instaMedia, $media)
     {
-        $instaMedia->setComments($media->comments->count)
+        $instaMedia
+            ->setComments($media->comments->count)
             ->setLikes($media->likes->count)
+            ->setLink($media->link)
+            ->setStandardResolution($media->images->standard_resolution->url)
             ->setUpdated(Carbon::now());
     }
 }
