@@ -62,6 +62,25 @@ class InstagramImporter
     }
 
     /**
+     * @param int $id
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function importSingleMedia(int $id): void
+    {
+        $instaMedia = $this->em->getRepository(InstaMedia::class)->find($id);
+
+        if (null !== $instaMedia) {
+            $media = $this->instagram->getMediaInfos($instaMedia->getExternalId());
+            if (null !== $media) {
+                $this->updateInstaMedia($instaMedia, $media);
+                $this->em->flush();
+            }
+        }
+    }
+
+    /**
      * Process instagram media
      *
      * @param $media

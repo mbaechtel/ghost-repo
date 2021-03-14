@@ -9,6 +9,7 @@
 namespace Ghost\BlogBundle\Manager;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Class Instagram
@@ -51,11 +52,11 @@ class Instagram
      * Get user recent medias
      *
      * @return null|array|object
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function getUserRecentMedias()
     {
-        return array_reverse($this->doRequest('me/media', 'id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username'));
+        return array_reverse($this->doRequest('me/media', 'id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username')->data);
     }
 
     /**
@@ -72,12 +73,12 @@ class Instagram
      * Get information about a media
      *
      * @param $mediaId
-     *
-     * @return null|object
+     * @return array|object|null
+     * @throws GuzzleException
      */
     public function getMediaInfos($mediaId)
     {
-        return $this->doRequest('media/'.$mediaId);
+        return $this->doRequest($mediaId, 'id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username');
     }
 
     /**
@@ -86,7 +87,7 @@ class Instagram
      * @param $uri
      * @param null $fields
      * @return null|array|object
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     private function doRequest($uri, $fields = null)
     {
@@ -99,13 +100,12 @@ class Instagram
 
         $response = $this->client->request('GET', $uri, ['query' => $query]);
 
-        $obj_result_data = null;
+        $obj_result = null;
 
         if (200 === $response->getStatusCode()) {
-            $contents = $response->getBody()->getContents();
-            $obj_result_data = json_decode($contents)->data;
+            $obj_result = json_decode($response->getBody()->getContents());
         }
 
-        return $obj_result_data;
+        return $obj_result;
     }
 }

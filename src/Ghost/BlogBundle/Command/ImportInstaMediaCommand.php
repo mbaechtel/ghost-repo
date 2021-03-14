@@ -10,6 +10,7 @@
 namespace Ghost\BlogBundle\Command;
 
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
@@ -18,31 +19,28 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class ImportInstaMediaCommand extends BaseCommand
 {
-    /**
-     * Configure
-     */
     protected function configure()
     {
         $this
             ->setName('ghost:instagram:import')
-            ->setDescription('Import instagram medias in database');
+            ->setDescription('Import instagram medias in database')
+            ->addOption('id', null, InputOption::VALUE_REQUIRED);
     }
 
-    /**
-     * Execute
-     *
-     * @param InputInterface $in
-     * @param OutputInterface $out
-     * @return int|null|void
-     */
-    protected function execute(InputInterface $in, OutputInterface $out)
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $out->writeln('<info>Execute import instagram medias</info>');
+        $output->writeln('<info>Execute import instagram medias</info>');
+
+        $id = (int) $input->getOption('id') > 0 ? (int) $input->getOption('id') : null;
 
         $instaImporter = $this->getContainer()->get('gh.instagram_importer');
 
-        $instaImporter->import();
+        if (null !== $id) {
+            $instaImporter->importSingleMedia($id);
+        } else {
+            $instaImporter->import();
+        }
 
-        $out->writeln('<info>Exit import instagram medias</info>');
+        $output->writeln('<info>Exit import instagram medias</info>');
     }
 }
