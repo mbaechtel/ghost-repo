@@ -88,12 +88,12 @@ class InstagramImporter
     {
         $instaMedia = new InstaMedia();
         $instaMedia->setExternalId($media->id)
-            ->setComments($media->comments->count)
-            ->setLikes($media->likes->count)
-            ->setLink($media->link)
-            ->setStandardResolution($media->images->standard_resolution->url)
+            ->setComments(0)
+            ->setLikes(0)
+            ->setLink($media->permalink)
+            ->setStandardResolution($media->media_url)
             ->setPublished(true)
-            ->setCreated(Carbon::createFromTimestamp((int) $media->created_time));
+            ->setCreated(Carbon::parse($media->timestamp));
 
         $this->em->persist($instaMedia);
     }
@@ -107,10 +107,10 @@ class InstagramImporter
     private function updateInstaMedia(InstaMedia $instaMedia, $media)
     {
         $instaMedia
-            ->setComments($media->comments->count)
-            ->setLikes($media->likes->count)
-            ->setLink($media->link)
-            ->setStandardResolution($media->images->standard_resolution->url)
+            //->setComments($media->comments->count)
+            //->setLikes($media->likes->count)
+            ->setLink($media->permalink)
+            ->setStandardResolution($media->media_url)
             ->setUpdated(Carbon::now());
     }
 }

@@ -32,7 +32,7 @@ class Instagram
     public function __construct($token)
     {
         $this->client = new Client([
-            'base_uri' => 'https://api.instagram.com/v1/'
+            'base_uri' => 'https://graph.instagram.com/'
         ]);
         $this->accessToken = $token;
     }
@@ -51,10 +51,11 @@ class Instagram
      * Get user recent medias
      *
      * @return null|array|object
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getUserRecentMedias()
     {
-        return array_reverse($this->doRequest('users/self/media/recent/'));
+        return array_reverse($this->doRequest('me/media', 'id,caption,media_type,media_url,permalink,thumbnail_url,timestamp,username'));
     }
 
     /**
@@ -83,18 +84,26 @@ class Instagram
      * Do request on api instagram
      *
      * @param $uri
+     * @param null $fields
      * @return null|array|object
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function doRequest($uri)
+    private function doRequest($uri, $fields = null)
     {
-        $response = $this->client->request('GET', $uri, [
-            'query' => ['access_token' => $this->accessToken]
-        ]);
+        $query = [];
+
+        if (null !== $fields) {
+            $query['fields'] = $fields;
+        }
+        $query['access_token'] = $this->accessToken;
+
+        $response = $this->client->request('GET', $uri, ['query' => $query]);
 
         $obj_result_data = null;
 
         if (200 === $response->getStatusCode()) {
-            $obj_result_data = json_decode($response->getBody()->getContents())->data;
+            $contents = $response->getBody()->getContents();
+            $obj_result_data = json_decode($contents)->data;
         }
 
         return $obj_result_data;
